@@ -26,7 +26,7 @@ module.exports = {
   ],
   author: {
     name: 'Ana Cunha',
-    photo: '/photo.jpg',
+    photo: '/media/photo.jpg',
     bio: 'Software Engineer',
     contacts: {
       email: '',
