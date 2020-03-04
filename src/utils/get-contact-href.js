@@ -4,7 +4,7 @@ const getContactHref = (name: string, contact: string) => {
 
   switch (name) {
     case 'twitter':
-      href = `https://twitter.com/${contact}`;
+      href = `https://www.twitter.com/${contact}`;
       break;
     case 'github':
       href = `https://github.com/${contact}`;
