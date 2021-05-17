@@ -1,4 +1,11 @@
 baseURL = "http://anacunha.dev/"
-languageCode = "en-us"
+defaultContentLanguage = "pt-br"
 title = "Ana Cunha"
 theme = "cactus"
+
+[languages]
+  [languages.pt-br]
+    weight = 1
+
+  [languages.en-us]
+    weight = 2
