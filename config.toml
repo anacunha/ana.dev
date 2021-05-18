@@ -1,7 +1,8 @@
 baseURL = "http://anacunha.dev/"
+copyright = "Ana Cunha"
 defaultContentLanguage = "pt-br"
-title = "Ana Cunha"
 theme = "cactus"
+title = "Ana Cunha"
 
 [languages]
   [languages.pt-br]
@@ -9,3 +10,24 @@ theme = "cactus"
 
   [languages.en-us]
     weight = 2
+
+[params]
+  colortheme = "classic"
+  description = "Software Development & Cloud Computing"
+  mainSection = "posts"
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+
+  [[menu.main]]
+    name = "Posts"
+    url = "/posts"
+    weight = 2
+
+  [[menu.main]]
+    name = "About"
+    url = "/about"
+    weight = 3
