@@ -16,6 +16,18 @@ title = "Ana Cunha"
   description = "Software Development & Cloud Computing"
   mainSection = "posts"
 
+  [[params.social]]
+    name = "github"
+    link = "https://github.com/anacunha"
+
+  [[params.social]]
+    name = "twitter"
+    link = "https://twitter.com/mcunhaana"
+
+  [[params.social]]
+    name = "linkedin"
+    link = "https://linkedin.com/in/analuizacunha"
+
 [menu]
   [[menu.main]]
     name = "Home"
