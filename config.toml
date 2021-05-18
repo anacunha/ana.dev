@@ -1,6 +1,8 @@
 baseURL = "http://anacunha.dev/"
 copyright = "Ana Cunha"
 defaultContentLanguage = "pt-br"
+googleAnalytics = "G-JWKQF999TS"
+googleAnalyticsAsync = true
 theme = "cactus"
 title = "Ana Cunha"
 
