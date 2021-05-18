@@ -10,7 +10,7 @@ title = "Ana Cunha"
   [languages.pt-br]
     weight = 1
 
-  [languages.en-us]
+  [languages.en]
     weight = 2
 
 [params]
