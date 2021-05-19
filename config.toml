@@ -17,6 +17,7 @@ title = "Ana Cunha"
   colortheme = "classic"
   description = "Software Development & Cloud Computing"
   mainSection = "posts"
+  rss = true
 
   [[params.social]]
     name = "github"
