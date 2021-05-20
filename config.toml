@@ -46,3 +46,6 @@ title = "Ana Cunha"
     name = "About"
     url = "/about"
     weight = 3
+
+[permalinks]
+  posts = "/:year/:filename"
