@@ -1,0 +1,43 @@
+baseURL: http://anacunha.dev/
+defaultContentLanguage: pt
+languageCode: pt
+title: Ana Cunha
+theme: PaperMod
+
+enableEmoji: true
+enableRobotsTXT: true
+googleAnalytics: G-JWKQF999TS
+googleAnalyticsAsync: true
+
+languages:
+  pt:
+    languageName: ":pt:"
+    weight: 1
+
+  en:
+      languageName: "English"
+      weight: 2
+
+menu:
+  main:
+    - name: Posts
+      url: posts
+    - name : About
+      url: about
+
+permalinks:
+  posts: /:year/:filename
+
+params:
+  homeInfoParams:
+    Title: ☁️
+    Content: Software Development, Cloud Computing
+
+  socialIcons:
+    - name: github
+      url: https://github.com/anacunha
+    - name: twitter
+      url: https://twitter.com/mcunhaana
+    - name: linkedin
+      url: https://linkedin.com/in/analuizacunha
+
