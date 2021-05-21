@@ -11,12 +11,14 @@ googleAnalyticsAsync: true
 
 languages:
   pt:
-    languageName: ":pt:"
+    languageName: ":brazil:"
+    languageAltTitle: "Portuguese"
     weight: 1
 
   en:
-      languageName: "English"
-      weight: 2
+    languageName: ":us:"
+    languageAltTitle: "English"
+    weight: 2
 
 menu:
   main:
@@ -29,6 +31,8 @@ permalinks:
   posts: /:year/:filename
 
 params:
+  author: Ana Cunha
+  displayFullLangName: true
   homeInfoParams:
     Title: ☁️
     Content: Software Development, Cloud Computing
