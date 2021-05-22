@@ -3,6 +3,7 @@ frontend:
   phases:
     build:
       commands:
+        - echo $(hugo version)
         - hugo
   artifacts:
     baseDirectory: /public
