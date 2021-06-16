@@ -9,35 +9,42 @@ enableRobotsTXT: true
 googleAnalytics: G-JWKQF999TS
 googleAnalyticsAsync: true
 
-languages:
-  pt:
-    languageName: ":brazil:"
-    languageAltTitle: "Portuguese"
-    weight: 1
+# languages:
+#   pt:
+#     languageName: ":brazil:"
+#     languageAltTitle: "Portuguese"
+#     weight: 1
 
-  en:
-    languageName: ":us:"
-    languageAltTitle: "English"
-    weight: 2
+#   en:
+#     languageName: ":us:"
+#     languageAltTitle: "English"
+#     weight: 2
 
 menu:
-  main:
-    - name: Posts
-      url: posts
-    - name : About
-      url: about
+  # main:
+  #   - name: Posts
+  #     url: posts
+  #   - name : About
+  #     url: about
 
 permalinks:
   posts: /:year/:slug
 
 params:
   author: Ana Cunha
+  defaultTheme: light
   displayFullLangName: true
-  homeInfoParams:
-    Title: ☁️
-    Content: Software Development, Cloud Computing
+  # homeInfoParams:
+  #   Title: ☁️
+  #   Content: Software Development, Cloud Computing
+
+  profileMode:
+    enabled: true
+    subtitle: Developer Advocate @ AWS
 
   socialIcons:
+    - name: email
+      url: mailto:anacunha@amazon.com
     - name: github
       url: https://github.com/anacunha
     - name: twitter
