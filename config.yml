@@ -21,11 +21,11 @@ googleAnalyticsAsync: true
 #     weight: 2
 
 menu:
-  # main:
+  main:
   #   - name: Posts
   #     url: posts
-  #   - name : About
-  #     url: about
+    - name : About
+      url: about
 
 permalinks:
   posts: /:section/:year/:slug
