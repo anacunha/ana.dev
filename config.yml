@@ -28,7 +28,7 @@ menu:
   #     url: about
 
 permalinks:
-  posts: /:year/:slug
+  posts: /:section/:year/:slug
 
 params:
   author: Ana Cunha
