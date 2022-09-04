@@ -11,4 +11,4 @@ I currently work as a Developer Advocate at [Amazon Web Services](https://aws.am
 
 Prior to joining AWS, I was a Software Development Engineer at Amazon.com. I also hold an M.S. in Computer Science from [Northeastern University](https://www.northeastern.edu/) and a B.S. in Information Systems from [PUCRS](https://www.pucrs.br/).
 
-I'm passionate about [video games](https://psnprofiles.com/cunhaana), [craft beers](https://untappd.com/user/anacunha), Taylor Swift, and cats. 🐱
+I'm passionate about [video games](https://psnprofiles.com/cunhaana), [craft beers](https://untappd.com/user/anacunha), [Taylor Swift](https://last.fm/user/anamcunha), and cats. 🐱
