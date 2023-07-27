@@ -43,8 +43,6 @@ params:
     subtitle: Developer Advocate @ AWS
 
   socialIcons:
-    - name: email
-      url: mailto:anacunha@amazon.com
     - name: github
       url: https://github.com/anacunha
     - name: twitter
