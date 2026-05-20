@@ -34,6 +34,9 @@ params:
   author: Ana Cunha
   defaultTheme: light
   displayFullLangName: true
+
+  social:
+    twitter: anacunha
   # homeInfoParams:
   #   Title: ☁️
   #   Content: Software Development, Cloud Computing
@@ -51,4 +54,3 @@ params:
       url: https://twitter.com/anacunha
     - name: linkedin
       url: https://linkedin.com/in/analuizacunha
-
