@@ -2,6 +2,7 @@
   "name": "ana.dev",
   "type": "module",
   "version": "0.0.1",
+  "packageManager": "pnpm@11.14.0",
   "engines": {
     "node": ">=22.12.0"
   },
@@ -13,10 +14,10 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
-    "astro": "^7.1.4"
+    "astro": "7.1.3"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.10",
+    "@astrojs/check": "0.9.9",
     "typescript": "^6.0.3"
   }
 }
