@@ -125,3 +125,14 @@ a {
     padding: 28px 20px 56px;
   }
 }
+
+/* Shiki dual themes: light colors are inline by default, dark ones come
+   from CSS vars. Keyed to the theme toggle's data-theme attribute. */
+:root[data-theme="dark"] .astro-code,
+:root[data-theme="dark"] .astro-code span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+  font-style: var(--shiki-dark-font-style) !important;
+  font-weight: var(--shiki-dark-font-weight) !important;
+  text-decoration: var(--shiki-dark-text-decoration) !important;
+}
