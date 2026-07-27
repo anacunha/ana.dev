@@ -1,0 +1,263 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteNav from "../components/SiteNav.astro";
+import { SOCIALS } from "../consts";
+
+const talks = [
+  { year: "2026", text: "Serverless, But Make It Boring — re:Invent (placeholder)" },
+  { year: "2025", text: "The Junk Drawer Model of DynamoDB — regional AWS Community Days" },
+  { year: "2025", text: "Demos That Survive Contact With Reality — DevRelCon (placeholder)" },
+];
+
+const processes = [
+  { pid: "001", name: "skateboard.d", status: "running — bails logged, lessons pending, kickflip still in beta" },
+  { pid: "002", name: "coffee.d", status: "always on — pour-over snob; decaf has never been detected" },
+  { pid: "003", name: "starwars.d", status: "uptime 20+ years — alignment: both sides (see toggle)" },
+];
+---
+
+<BaseLayout title="About">
+  <SiteNav active="about" />
+
+  <div class="about-head">
+    <div>
+      <h1>$ whoami --verbose</h1>
+      <p class="eyebrow">ana — the long answer</p>
+    </div>
+    <div class="photo" aria-hidden="true">photo</div>
+  </div>
+
+  <div class="sections">
+    <section>
+      <h2>NAME</h2>
+      <p>
+        ana — software engineer, developer advocate, shipped from Brazil, running in Mexico, Spanish
+        still in beta.
+      </p>
+    </section>
+
+    <section>
+      <h2>SYNOPSIS</h2>
+      <p>ana [--build] [--write] [--speak] <span class="accent">[--break-things-first]</span></p>
+    </section>
+
+    <section>
+      <h2>DESCRIPTION</h2>
+      <p>
+        I started as a software engineer building the kind of systems I now warn people about.
+        Somewhere along the way I discovered the thing I love most about engineering is the moment
+        it clicks for someone else — so I made that my job.
+      </p>
+      <p>
+        These days I'm a Developer Advocate at AWS. I spend my time building demos, writing about
+        serverless and dev tools, and standing on stages betting my dignity on conference wifi. I
+        still write code every day; I just also write about what it did to me.
+      </p>
+      <p>Off the clock, see BACKGROUND PROCESSES below — none of them are killable.</p>
+    </section>
+
+    <section>
+      <h2>CURRENTLY</h2>
+      <p>
+        Writing a series on serverless patterns, and slowly turning my talk-prep checklist into a
+        public post. If half of it ships, the demo gods willed it.
+      </p>
+    </section>
+
+    <section>
+      <h2>TALKS</h2>
+      <div class="talks">
+        {
+          talks.map((talk) => (
+            <div class="talk">
+              <span class="talk-year">{talk.year}</span>
+              <span>{talk.text}</span>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <section>
+      <h2>BACKGROUND PROCESSES</h2>
+      <div class="proc-header">
+        <span class="proc-pid">PID</span>
+        <span class="proc-name">NAME</span>
+        <span>STATUS</span>
+      </div>
+      {
+        processes.map((proc) => (
+          <div class="proc-row">
+            <span class="proc-pid">{proc.pid}</span>
+            <span class="proc-name">{proc.name}</span>
+            <span class="proc-status">{proc.status}</span>
+          </div>
+        ))
+      }
+    </section>
+
+    <section>
+      <h2>SEE ALSO</h2>
+      <div class="see-also">
+        <a href="/blog/">blog(1)</a>
+        {SOCIALS.map((s) => <a href={s.href}>{s.label}</a>)}
+      </div>
+    </section>
+
+    <section>
+      <h2>EXIT STATUS</h2>
+      <p>Returns 0. Eventually.</p>
+    </section>
+  </div>
+</BaseLayout>
+
+<style>
+  .about-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 28px;
+    margin-bottom: 34px;
+  }
+
+  .about-head h1 {
+    margin: 0 0 8px;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: -0.4px;
+    color: var(--text-heading);
+  }
+
+  .eyebrow {
+    margin: 0;
+    font-size: 13px;
+    color: var(--text-date);
+  }
+
+  .photo {
+    width: 96px;
+    height: 96px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    border: 1px dashed var(--border-strong);
+    background: var(--terminal-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  .sections {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  h2 {
+    margin: 0 0 10px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+  }
+
+  p {
+    margin: 0 0 14px;
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--text-body);
+    text-wrap: pretty;
+  }
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  .accent {
+    color: var(--accent);
+    text-shadow: var(--glow-soft);
+  }
+
+  .talks {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .talk {
+    display: flex;
+    gap: 14px;
+  }
+
+  .talk-year {
+    color: var(--text-date);
+    flex-shrink: 0;
+  }
+
+  .proc-header {
+    display: flex;
+    gap: 16px;
+    padding: 0 0 6px;
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+
+  .proc-row {
+    display: flex;
+    gap: 16px;
+    padding: 7px 0;
+    border-bottom: 1px dashed var(--border);
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .proc-pid {
+    width: 30px;
+    flex-shrink: 0;
+    color: var(--text-muted);
+  }
+
+  .proc-name {
+    width: 150px;
+    flex-shrink: 0;
+    color: var(--text-link);
+    font-weight: 500;
+  }
+
+  .proc-status {
+    color: var(--text-body);
+  }
+
+  .see-also {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+    font-size: 13px;
+  }
+
+  .see-also a {
+    color: var(--text-link);
+    transition:
+      text-shadow 0.35s ease-out,
+      color 0.35s ease-out;
+  }
+
+  .see-also a:hover {
+    color: var(--accent-hover);
+    text-shadow: var(--glow-hover);
+  }
+
+  @media (max-width: 640px) {
+    .about-head {
+      flex-direction: column-reverse;
+      gap: 20px;
+    }
+
+    .proc-name {
+      width: 104px;
+    }
+  }
+</style>

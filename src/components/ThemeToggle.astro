@@ -1,0 +1,98 @@
+---
+---
+
+<button type="button" class="theme-toggle" aria-label="Toggle color theme">
+  <span class="hilt-cap"></span>
+  <span class="hilt-body"><span class="hilt-dot"></span></span>
+  <span class="hilt-grip"></span>
+  <span class="hilt-emitter"></span>
+  <span class="blade"></span>
+</button>
+
+<style>
+  .theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 0;
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+
+  .hilt-cap {
+    width: 3px;
+    height: 7px;
+    border-radius: 1px 0 0 1px;
+    background: var(--hilt-cap);
+  }
+
+  .hilt-body {
+    width: 13px;
+    height: 9px;
+    border-radius: 1px;
+    background: var(--hilt-body);
+    border: 1px solid var(--hilt-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hilt-dot {
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    background: var(--hilt-dot);
+  }
+
+  .hilt-grip {
+    width: 3px;
+    height: 11px;
+    border-radius: 1px;
+    background: var(--hilt-grip);
+  }
+
+  .hilt-emitter {
+    width: 2px;
+    height: 8px;
+    background: var(--hilt-emitter);
+    border-radius: 0 1px 1px 0;
+    margin-right: 1px;
+  }
+
+  .blade {
+    width: 30px;
+    height: 3px;
+    border-radius: 0 2px 2px 0;
+    background: #ffffff;
+    box-shadow: var(--blade-glow);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.3, 1);
+  }
+
+  .theme-toggle:hover .blade {
+    transform: scaleX(1);
+  }
+</style>
+
+<script>
+  function applyTitle(btn: HTMLButtonElement) {
+    const isDark = document.documentElement.dataset.theme === "dark";
+    btn.title = isDark ? "return to the light side" : "switch to the dark side";
+  }
+
+  document.querySelectorAll<HTMLButtonElement>(".theme-toggle").forEach((btn) => {
+    applyTitle(btn);
+    btn.addEventListener("click", () => {
+      const isDark = document.documentElement.dataset.theme === "dark";
+      const next = isDark ? "light" : "dark";
+      if (next === "dark") {
+        document.documentElement.dataset.theme = "dark";
+      } else {
+        delete document.documentElement.dataset.theme;
+      }
+      localStorage.setItem("ana-theme", next);
+      applyTitle(btn);
+    });
+  });
+</script>
