@@ -42,7 +42,7 @@ const recentPosts = [
   </header>
 
   <p class="intro">
-    I'm a software engineer turned developer advocate. I help people ship
+    I'm a software engineer turned developer advocate. I help people build
     things on AWS. This is my new blog, where I write about it.
   </p>
 
@@ -62,7 +62,9 @@ const recentPosts = [
       <Fragment>
         <h2 class="section-label">$ ls posts/ --recent</h2>
         <div class="posts">
-          {recentPosts.map((post) => <PostCard {...post} />)}
+          {recentPosts.map((post) => (
+            <PostCard {...post} />
+          ))}
         </div>
 
         <a href="/blog/" class="view-all">
