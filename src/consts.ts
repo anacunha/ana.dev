@@ -1,8 +1,7 @@
 export const SITE_NAME = "Ana Cunha";
 
-// Flip these on when each page/section is ready to launch.
+// Flip this on when the page is ready to launch.
 export const SHOW_ABOUT = false;
-export const SHOW_BLOG = false;
 
 export const SOCIALS = [
   { label: "[github]", href: "https://github.com/anacunha" },

@@ -1,6 +1,6 @@
 ---
 import ThemeToggle from "./ThemeToggle.astro";
-import { SHOW_ABOUT, SHOW_BLOG } from "../consts";
+import { SHOW_ABOUT } from "../consts";
 
 interface Props {
   active?: "blog" | "about";
@@ -12,7 +12,7 @@ const { active } = Astro.props;
 <nav class="site-nav">
   <a href="/" class="logo"><span class="brand">ana</span>.dev</a>
   <div class="nav-links">
-    {SHOW_BLOG && <a href="/blog/" class={active === "blog" ? "active" : ""}>blog/</a>}
+    <a href="/blog/" class={active === "blog" ? "active" : ""}>blog/</a>
     {SHOW_ABOUT && <a href="/about/" class={active === "about" ? "active" : ""}>about/</a>}
     <ThemeToggle />
   </div>

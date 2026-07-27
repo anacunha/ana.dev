@@ -41,6 +41,9 @@
   --cursor-border: 1px solid #cfdae4;
   --cursor-glow: 0 0 5px rgba(255, 255, 255, 0.85), 0 0 12px rgba(126, 160, 195, 0.56),
     0 0 19px rgba(126, 160, 195, 0.29);
+
+  --chip-active-text: #f6f8fa;
+  --chip-active-glow: 0 0 8px rgba(126, 160, 195, 0.5);
 }
 
 :root[data-theme="dark"] {
@@ -85,6 +88,9 @@
   --cursor-border: none;
   --cursor-glow: 0 0 4px rgba(255, 47, 69, 0.9), 0 0 10px rgba(255, 47, 69, 0.55),
     0 0 16px rgba(255, 47, 69, 0.3);
+
+  --chip-active-text: #16181d;
+  --chip-active-glow: 0 0 10px rgba(255, 47, 69, 0.5);
 }
 
 * {
@@ -118,4 +124,15 @@ a {
   .pg {
     padding: 28px 20px 56px;
   }
+}
+
+/* Shiki dual themes: light colors are inline by default, dark ones come
+   from CSS vars. Keyed to the theme toggle's data-theme attribute. */
+:root[data-theme="dark"] .astro-code,
+:root[data-theme="dark"] .astro-code span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+  font-style: var(--shiki-dark-font-style) !important;
+  font-weight: var(--shiki-dark-font-weight) !important;
+  text-decoration: var(--shiki-dark-text-decoration) !important;
 }
