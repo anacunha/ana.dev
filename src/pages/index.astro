@@ -1,17 +1,214 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteNav from "../components/SiteNav.astro";
+import PostCard from "../components/PostCard.astro";
+import { SHOW_BLOG, SOCIALS } from "../consts";
 
+// Placeholder until the blog content collection exists.
+const recentPosts = [
+  {
+    title: "Lambda Cold Starts, Measured (So You Can Stop Guessing)",
+    href: "/blog/lambda-cold-starts-measured/",
+    date: "Jul 14, 2026",
+    tags: ["serverless", "aws"],
+    description:
+      "I benchmarked cold starts across runtimes and memory configs so you don't have to. The results surprised me, and one of them changed how I ship.",
+  },
+  {
+    title: "The Demo Gods Demand Sacrifice",
+    href: "/blog/the-demo-gods-demand-sacrifice/",
+    date: "Jun 30, 2026",
+    tags: ["devrel", "speaking"],
+    description:
+      "Everything I do to keep a live demo alive on stage: pre-recorded escape hatches, network paranoia, and the one rule I never break.",
+  },
+  {
+    title: "Step Functions Saved Me From My Own Cron Jobs",
+    href: "/blog/step-functions-saved-me/",
+    date: "Jun 12, 2026",
+    tags: ["serverless", "patterns"],
+    description:
+      "I replaced a pile of duct-taped cron jobs with a state machine and finally started sleeping through the night. A field guide.",
+  },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout>
+  <SiteNav />
+
+  <header class="identity">
+    <h1>Hi, I'm Ana.</h1>
+    <p class="role">Developer Advocate @ AWS</p>
+  </header>
+
+  <p class="intro">
+    I'm a software engineer turned developer advocate. I help people ship
+    things on AWS. This is my new blog, where I write about it.
+  </p>
+
+  <div class="terminal">
+    <div><span class="dollar">$</span> whoami<span class="cursor"></span></div>
+    <div class="terminal-out">
+      ana — shipped from brazil, running in mexico, spanish in beta
+    </div>
+  </div>
+
+  <div class="socials">
+    {SOCIALS.map((s) => <a href={s.href}>{s.label}</a>)}
+  </div>
+
+  {
+    SHOW_BLOG && (
+      <Fragment>
+        <h2 class="section-label">$ ls posts/ --recent</h2>
+        <div class="posts">
+          {recentPosts.map((post) => <PostCard {...post} />)}
+        </div>
+
+        <a href="/blog/" class="view-all">
+          cd posts/ → view all
+        </a>
+      </Fragment>
+    )
+  }
+</BaseLayout>
+
+<style>
+  .identity {
+    margin-bottom: 26px;
+  }
+
+  .identity h1 {
+    margin: 0 0 6px;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    color: var(--text-heading);
+  }
+
+  .role {
+    margin: 0;
+    font-size: 14px;
+    color: var(--accent);
+    font-weight: 500;
+    text-shadow: var(--glow-soft);
+  }
+
+  .intro {
+    margin: 0 0 26px;
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--text-body);
+    max-width: 600px;
+    text-wrap: pretty;
+  }
+
+  .terminal {
+    border: 1px solid var(--border-strong);
+    border-radius: 6px;
+    padding: 15px 19px;
+    font-size: 13px;
+    line-height: 1.9;
+    margin-bottom: 26px;
+    background: var(--terminal-bg);
+    color: var(--text-nav);
+  }
+
+  .dollar {
+    color: var(--text-muted);
+  }
+
+  .cursor {
+    display: inline-block;
+    width: 7px;
+    height: 14px;
+    margin-left: 2px;
+    vertical-align: -2px;
+    border-radius: 1px;
+    background: var(--cursor-bg);
+    border: var(--cursor-border);
+    box-shadow: var(--cursor-glow);
+    animation: cursor-blink 1.6s step-end infinite;
+  }
+
+  @keyframes cursor-blink {
+    0%,
+    49% {
+      opacity: 1;
+    }
+    50%,
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cursor {
+      animation: none;
+    }
+  }
+
+  .terminal-out {
+    color: var(--text-nav);
+  }
+
+  .socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+    font-size: 13px;
+    margin-bottom: 56px;
+  }
+
+  .socials a {
+    color: var(--text-link);
+    transition:
+      text-shadow 0.35s ease-out,
+      color 0.35s ease-out;
+  }
+
+  .socials a:hover {
+    color: var(--accent-hover);
+    text-shadow: var(--glow-hover);
+  }
+
+  .section-label {
+    margin: 0 0 6px;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text-muted);
+  }
+
+  .posts {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .view-all {
+    display: inline-block;
+    margin-top: 16px;
+    font-size: 13px;
+    color: var(--text-link);
+    border: 1px solid var(--button-border);
+    border-radius: 6px;
+    padding: 9px 16px;
+    transition:
+      border-color 0.25s ease-out,
+      color 0.25s ease-out;
+  }
+
+  .view-all:hover {
+    border-color: var(--button-border-hover);
+    color: var(--button-text-hover);
+  }
+
+  @media (max-width: 640px) {
+    .identity h1 {
+      font-size: 27px;
+    }
+
+    .socials {
+      justify-content: center;
+    }
+  }
+</style>
