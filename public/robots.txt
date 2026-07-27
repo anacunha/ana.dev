@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ana.dev/sitemap-index.xml
