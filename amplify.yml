@@ -1,0 +1,14 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - corepack enable
+        - pnpm install
+    build:
+      commands:
+        - pnpm build
+  artifacts:
+    baseDirectory: dist
+    files:
+      - '**/*'
