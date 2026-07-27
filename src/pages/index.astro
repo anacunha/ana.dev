@@ -1,36 +1,25 @@
 ---
+import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import SiteNav from "../components/SiteNav.astro";
 import PostCard from "../components/PostCard.astro";
-import { SHOW_BLOG, SOCIALS } from "../consts";
+import { SOCIALS } from "../consts";
 
-// Placeholder until the blog content collection exists.
-const recentPosts = [
-  {
-    title: "Lambda Cold Starts, Measured (So You Can Stop Guessing)",
-    href: "/blog/lambda-cold-starts-measured/",
-    date: "Jul 14, 2026",
-    tags: ["serverless", "aws"],
-    description:
-      "I benchmarked cold starts across runtimes and memory configs so you don't have to. The results surprised me, and one of them changed how I ship.",
-  },
-  {
-    title: "The Demo Gods Demand Sacrifice",
-    href: "/blog/the-demo-gods-demand-sacrifice/",
-    date: "Jun 30, 2026",
-    tags: ["devrel", "speaking"],
-    description:
-      "Everything I do to keep a live demo alive on stage: pre-recorded escape hatches, network paranoia, and the one rule I never break.",
-  },
-  {
-    title: "Step Functions Saved Me From My Own Cron Jobs",
-    href: "/blog/step-functions-saved-me/",
-    date: "Jun 12, 2026",
-    tags: ["serverless", "patterns"],
-    description:
-      "I replaced a pile of duct-taped cron jobs with a state machine and finally started sleeping through the night. A field guide.",
-  },
-];
+const recentPosts = (await getCollection("blog"))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3)
+  .map((post) => ({
+    title: post.data.title,
+    href: `/blog/${post.id}/`,
+    date: post.data.pubDate.toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
+      timeZone: "UTC",
+    }),
+    tags: post.data.tags,
+    description: post.data.description,
+  }));
 ---
 
 <BaseLayout>
@@ -57,22 +46,12 @@ const recentPosts = [
     {SOCIALS.map((s) => <a href={s.href}>{s.label}</a>)}
   </div>
 
-  {
-    SHOW_BLOG && (
-      <Fragment>
-        <h2 class="section-label">$ ls posts/ --recent</h2>
-        <div class="posts">
-          {recentPosts.map((post) => (
-            <PostCard {...post} />
-          ))}
-        </div>
+  <h2 class="section-label">$ ls posts/ --recent</h2>
+  <div class="posts">
+    {recentPosts.map((post) => <PostCard {...post} />)}
+  </div>
 
-        <a href="/blog/" class="view-all">
-          cd posts/ → view all
-        </a>
-      </Fragment>
-    )
-  }
+  <a href="/blog/" class="view-all">cd posts/ → view all</a>
 </BaseLayout>
 
 <style>
