@@ -1,0 +1,69 @@
+---
+import ThemeToggle from "./ThemeToggle.astro";
+import { SHOW_ABOUT, SHOW_BLOG } from "../consts";
+
+interface Props {
+  active?: "blog" | "about";
+}
+
+const { active } = Astro.props;
+---
+
+<nav class="site-nav">
+  <a href="/" class="logo"><span class="brand">ana</span>.dev</a>
+  <div class="nav-links">
+    {SHOW_BLOG && <a href="/blog/" class={active === "blog" ? "active" : ""}>blog/</a>}
+    {SHOW_ABOUT && <a href="/about/" class={active === "about" ? "active" : ""}>about/</a>}
+    <ThemeToggle />
+  </div>
+</nav>
+
+<style>
+  .site-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 40px;
+  }
+
+  .logo {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-link);
+  }
+
+  .brand {
+    color: var(--brand);
+    text-shadow: var(--glow-soft);
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    font-size: 13px;
+  }
+
+  .nav-links a {
+    color: var(--text-nav);
+    transition:
+      text-shadow 0.35s ease-out,
+      color 0.35s ease-out;
+  }
+
+  .nav-links a:hover {
+    color: var(--accent-hover);
+    text-shadow: var(--glow-hover);
+  }
+
+  .nav-links a.active {
+    color: var(--accent);
+    text-shadow: var(--glow-soft);
+  }
+
+  @media (max-width: 640px) {
+    .nav-links {
+      gap: 15px;
+    }
+  }
+</style>
